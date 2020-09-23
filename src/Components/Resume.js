@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Ticker from 'react-ticker';
-import BookmarkIcon from '@material-ui/icons/Bookmark';
+// import BookmarkIcon from '@material-ui/icons/Bookmark';
 
 class Resume extends Component {
 
@@ -54,7 +54,7 @@ class Resume extends Component {
             <Ticker mode="smooth">
                 {({ index }) => (
                   <>
-                    <a className="ticker" href="https://drive.google.com/file/d/1L9nkqyoel3IvEmHwNL1p_NhqwaBq92T4/view?usp=sharing" target="_blank">
+                    <a className="ticker" rel="noopener noreferrer" href="https://drive.google.com/file/d/1L9nkqyoel3IvEmHwNL1p_NhqwaBq92T4/view?usp=sharing" target="_blank">
                       <i class="fa fa-bookmark" aria-hidden="true"></i>
                       <h1 style={{fontFamily: "Dancing Script"}}>Check out my resume for more details !</h1>
                       <i class="fa fa-bookmark" aria-hidden="true"></i>

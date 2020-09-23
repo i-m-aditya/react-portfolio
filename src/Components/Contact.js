@@ -1,4 +1,4 @@
-import { Button, Divider, Input } from '@material-ui/core';
+// import { Button, Divider, Input } from '@material-ui/core';
 import React, { useState } from 'react';
 import EmailIcon from '@material-ui/icons/Email';
 const Contact = ({ data }) => {
