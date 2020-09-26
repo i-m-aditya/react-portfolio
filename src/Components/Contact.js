@@ -1,54 +1,82 @@
-// import { Button, Divider, Input } from '@material-ui/core';
 import React, { useState } from 'react';
-import EmailIcon from '@material-ui/icons/Email';
+
 const Contact = ({ data }) => {
-   // const [url, setUrl] = useState('mailto:test@example.com?subject=subject&body=body');
+   const [url, setUrl] = useState('mailto:test@example.com?subject=subject&body=body');
    const [name, setName] = useState('');
    const [subject, setSubject] = useState('');
-   const email = "prblmslvr.adity@gmail.com"
+   const email = "prblmslvr.aditya@gmail.com"
    const [message, setMessage] = useState('');
 
    console.log(data)
 
     const handleClick = (e) => {
-       e.preventDefault();
-       console.log("Hey there !!!");
-       if(name === "" || email === ""  || message === "") {
-         alert("Please fill all the details")
-       } else {
-          window.open(`mailto:${email}?subject=${subject}&body=${message}`);
-       }
+      e.preventDefault();
+      window.open(`mailto:${email}?subject=${subject}&body=${name}: ${message}`);
     }
+    
 
     return (
-
       <section id="contact">
-         <div className="contact">
-            <form>
-                  <div className="contact-header">
-                     <EmailIcon className="email-icon"/>
-                     <p> Let's connect !</p>
-                  </div>
-                  <fieldset>
-                     <div className="contact-items">
-                        <label for="name">Name*</label>
-                        <input className="contact-items-input" type="text" id="name" value={name} onChange={(event)=>setName(event.target.value)} />
-                     </div>
-                     <div className="contact-items">
-                        <label for="subject">Subject*</label>
-                        <input className="contact-items-input" type="text" id="subject" value={subject} onChange={(event)=>setSubject(event.target.value) }/>
-                     </div>
-                     <div className="contact-items message">
-                        <label for="message">Message*</label>
-                        <textarea className="contact-items-input" type="text" id="Message" value={message} onChange={(event)=>setMessage(event.target.value)} />
-                     </div>
 
-                     <button className="contact-button" onClick={handleClick}> Submit </button>
-                  </fieldset>
-               </form>
+         <div className="row section-head">
+
+            <div className="two columns header-col">
+
+               <h1><span>Get In Touch.</span></h1>
+
+            </div>
+
+            <div className="ten columns">
+
+                  <p className="lead">{data?.message}</p>
+
+            </div>
+
          </div>
-      </section>
-    )
+
+         <div className="row">
+            <div className="eight columns">
+
+               <form id="contactForm" name="contactForm">
+					<fieldset>
+
+                  <div>
+						   <label htmlFor="contactName">Name <span className="required">*</span></label>
+						   <input value={name} type="text" defaultValue="" size="35" id="contactName" name="contactName" onChange={e => setName(e.target.value)}/>
+                  </div>
+
+                  {/* <div>
+						   <label htmlFor="contactEmail">Email <span className="required">*</span></label>
+						   <input value={email} type="text" defaultValue="" size="35" id="contactEmail" name="contactEmail"/>
+                  </div> */}
+
+                  <div>
+						   <label htmlFor="contactSubject">Subject</label>
+						   <input value={subject} type="text" defaultValue="" size="35" id="contactSubject" name="contactSubject" onChange={e => setSubject(e.target.value)}/>
+                  </div>
+
+                  <div>
+                     <label htmlFor="contactMessage">Message <span className="required">*</span></label>
+                     <textarea value={message} onChange={e => setMessage(e.target.value)} cols="50" rows="15" id="contactMessage" name="contactMessage"></textarea>
+                  </div>
+
+                  <div>
+                     <button type='submit' onClick={handleClick} className="submit">Submit</button>
+                     <span id="image-loader">
+                        <img alt="" src="images/loader.gif" />
+                     </span>
+                  </div>
+					</fieldset>
+				   </form>
+
+           <div id="message-warning"> Error boy</div>
+				   <div id="message-success">
+                  <i className="fa fa-check"></i>Your message was sent, thank you!<br />
+				   </div>
+           </div>
+      </div>
+   </section>
+    );
 }
 
 export default Contact;
