@@ -12,7 +12,7 @@ const Contact = ({ data }) => {
 
     const handleClick = (e) => {
        e.preventDefault();
-       console.log("Hey there !!!");
+       console.log("Hey!!!");
        if(name === "" || email === ""  || message === "") {
          alert("Please fill all the details")
        } else {
@@ -42,8 +42,8 @@ const Contact = ({ data }) => {
                         <label for="message">Message*</label>
                         <textarea className="contact-items-input" type="text" id="Message" value={message} onChange={(event)=>setMessage(event.target.value)} />
                      </div>
+                        <button className="contact-button" onClick={handleClick}> Submit </button>
 
-                     <button className="contact-button" onClick={handleClick}> Submit </button>
                   </fieldset>
                </form>
          </div>
